@@ -1,5 +1,5 @@
 """
-URL configuration for razorpay project.
+URL configuration for project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", checkout, name="checkout"),
+    path("makepayment/", makepayment, name="makepayment"),
+    path("payment-success/", payment_success, name="payment_success"),
+    path("accounts/login/",login_user,name="login"),
+    path("signup/",signup,name="signup"),
+    path("logout/",login_user,name="logout")
 ]

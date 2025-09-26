@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <a href="{% url 'login' %}"><h2>Login</h2></a>
+    <a href="{% url 'logout' %}"><h2>Logout</h2></a>
+
+    {% if user.is_authenticated %}
+        <h1>{{ user.username}}</h1>
+    {% endif %}
+
+    <h2>Checkout Page</h2>
+    <p>Product Price: ₹399</p>
+    <form method="POST" action="{% url 'makepayment' %}">
+        {% csrf_token %}
+        <button type="submit">Proceed to Pay</button>
+    </form>
+</body>
+</html>
